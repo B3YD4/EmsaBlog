@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/stylesheets/blog-ekle.css">
+	<script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+	<title>Admin Panel | Blog Ekle</title>
+</head>
+<body>
+
+	<div class="form-container">
+		
+		<div class="form">
+			
+			<form action="/emsawithadmin/blog-ekle" method="post" class="m-form">
+				
+				<span class="middle">Resim URL Adresinizi Giriniz<input type="text" name="resim" class="resim" placeholder="Resim Adresi Giriniz..." autocomplete="off"> </span> 
+				<span class="middle">Başlık Giriniz<input type="text" name="baslik" class="baslik" placeholder="Başlık Giriniz..." autocomplete="off"></span> 
+				<span class="middle">Yazınızı Giriniz<textarea name="yazi" class="yazi" id="yazi" placeholder="Blog Yazısı Giriniz..."></textarea></span>
+				<button class="gonder-btn">Gönder</button>
+
+			</form>
+
+		</div>
+
+	</div>
+
+
+	<script>
+
+		CKEDITOR.replace('yazi');
+
+	</script>
+
+</body>
+</html>

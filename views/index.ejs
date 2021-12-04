@@ -1,0 +1,44 @@
+<% include ./partials/header %>
+
+	<!-- Orta Kısım -->
+  	<div class="orta-resim">
+  		<div class="resim-container">
+  			<div class="resim-baslik">EmSa Blog</div>
+  			<div class="resim-yazi">Merhaba EmSa Bloga Hoşgeldiniz!</div>
+  			<div class="resim-yazi">EmSa Blog Sizlere En İyi Şekilde Birşeyleri Öğretmeyi Amaçlar!</div>
+  		</div>
+  	</div>
+
+  	<!-- Blogların Olduğu Kısım -->
+  	<div class="blog-container" id="blog-container">
+
+  		<% veri.forEach( (blog) =>{ %>
+  		<div class="blog">
+
+  			<div class="blog-resim"><img src="<%=blog.resim%>" alt=""></div>
+  			<div class="blog-baslik"><h2><%=blog.baslik%></h2></div>
+  			<div class="blog-aciklama" id="blog-aciklama" style="font-family: 'Poppins', sans-serif;">
+  				<%-blog.yazi%>
+  			</div>
+
+        
+
+        <form class="blog-buton" method="POST" action="/blog/<%=blog._id%> " ><button type="submit">Devamını Oku</button></form>
+
+  		</div>
+  		<% }); %>
+
+  	</div>
+
+  	<div class="daha-fazla-container">
+  		<button class="daha-fazla">Daha Fazla Yükle</button>
+  	</div>
+
+  	<% include ./partials/footer %>
+
+	<script src="javascripts/readmore.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="javascripts/loadmore.js"></script>
+
+  </body>
+</html>

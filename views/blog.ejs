@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/stylesheets/blog.css">
+	<title>Document</title>
+</head>
+<body>
+	
+	<% include ./partials/header %>
+
+	<div class="blog-container">
+
+		<div class="blog-blog">
+			
+			<div class="h1-baslik"><h1><%=baslik%></h1></div>
+
+			<div class="resim-container"><img src="<%=resim%>" alt=""></div>
+
+			<div class="blog-yazi" style="font-family: arial;"><%-yazi%></div>
+
+			<div class="tarih" style="font-size: 17px;font-family: arial;"><ion-icon name="eye-outline"></ion-icon><%=ziyaret%> Kişi Tarafından Ziyaret Edildi</div>
+
+			<div class="tarih" style="font-size: 17px;font-family: arial;"><%=tarih%> Tarhihinde Yazıldı</div>
+
+		</div>
+
+		<!-- Yorumların Gösterildiği Kısım -->
+		<% for(const isim of yorum) { %>
+		<div class="yorumlar-container">
+
+			<div class="resim"><img src="/images/profile.jpg" alt=""></div>
+			
+				<div class="yorumlar">
+
+					<form action="#" method="POST">
+						<div class="isim"><b><%=isim.name%></b></div>
+						<div class="tarih"><%=isim.tarih%></div>
+						<div class="yorum"><%=isim.message%></div>
+					</form>
+
+				</div>
+
+		</div>
+		<% } %>
+
+
+		<!-- Yorum Yazma Kısımı -->
+
+		<div class="yorum-yaz-container">
+
+			<div class="yorum-yaz">
+
+				<form action="/blog/<%=numara%>/yorum-yap" method="POST">
+					<span>Yorumunuz</span><textarea name="yorum_yorum" id="" cols="30" rows="10" class="yorum-area" required></textarea>
+					<span>İsminiz</span><input type="text" required class="yorum-isim" name="yorum_isim" autocomplete="off">
+					<button type="Submit" class="yorum-buton">Yorumu Gönder</button>
+				</form>
+
+			</div>
+
+		</div>
+
+
+	</div>
+
+	
+
+	
+
+	
+
+	<% include ./partials/footer %>
+	
+
+</body>
+</html>
