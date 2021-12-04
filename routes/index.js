@@ -11,8 +11,12 @@ moment().format();
 router.get('/', function(req, res, next) {
 
 	Blog.find({}, (err, data) => {
-		res.render('index', {veri: data});
-	})
+		if(data){
+			res.render('index', {veri: data});
+		}else{
+			res.render('index');
+		}
+	});
 
   
 });
@@ -35,17 +39,17 @@ router.get('/emsawithadmin/blog-ekle', (req, res) => {
 
 // Eklediğimiz Blogları Kaydettiğimiz Kod Parçacığı
 router.post('/emsawithadmin/blog-ekle', (req, res) => {
-
+	
 	const resim = req.body.resim;
-    const baslik = req.body.baslik;
-    const yazi = req.body.yazi;
+	const baslik = req.body.baslik;
+    	const yazi = req.body.yazi;
 
-    const blog = new Blog({
-    	resim: resim,
-    	baslik: baslik,
-    	yazi: yazi,
-    	goruntulenme: 0,
-    	blog_date: moment().format('DD, MMMM, YYYY, k:mm')
+    	const blog = new Blog({
+		resim: resim,
+		baslik: baslik,
+		yazi: yazi,
+		goruntulenme: 0,
+		blog_date: moment().format('DD, MMMM, YYYY, k:mm')
 
     });
 
